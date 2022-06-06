@@ -1,0 +1,12 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.PriceBox {
+    @include font(15px, 700, $black, none, 24px);
+    margin: 5px 0;
+
+    &__regular {
+        color: $grey;
+        text-decoration: line-through;
+    }
+}

@@ -1,0 +1,28 @@
+$black: #000000;
+$white: #ffffff;
+$gold: gold;
+$grey: #696969;
+$lightGrey: #f7f7f7;
+
+$breakpoints: (
+  xs: 0,
+  xs-max: 575px,
+  sm: 576px,
+  sm-max: 767px,
+  md: 768px,
+  md-max: 991px,
+) !default;
+
+
+/** width: > xs and < sm-max */
+@mixin Mobile () {
+    @media (min-width: map-get($map: $breakpoints, $key: xs)) and (max-width: map-get($map: $breakpoints, $key: sm-max)) {
+        @content;
+    }
+}
+/** width: > xs and < md-max */
+@mixin MobileTablet () {
+    @media (min-width: map-get($map: $breakpoints, $key: xs)) and (max-width: map-get($map: $breakpoints, $key: md-max)) {
+        @content;
+    }
+}

@@ -1,0 +1,82 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.SingleTrip {
+    width: calc(33.33% - 10px);
+    border-radius: 5px;
+    overflow: hidden;
+
+    @include Mobile {
+        width: 100%;
+        margin-bottom: 40px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__thumb {
+        width: 100%;
+        padding-bottom: 65%;
+        position: relative;
+        overflow: hidden;
+        display: block;
+
+        img {
+            position: absolute;
+            top:0;
+            right:0;
+            width: 100%;
+            height: 100%;
+            transition: all .5s;
+        }
+    }
+
+    &__details {
+        padding: 10px;
+        border: 1px solid $lightGrey;
+
+        & > span {
+            @include font(15px, 700, $grey, none, 22px);
+        }
+
+        h3 {
+            margin: 0 0 20px;
+
+            a {
+                @include font(26px, 800, $black, none, 32px);
+                position: relative;
+
+                &:after {
+                    content: "";
+                    width: 0;
+                    height: 2px;
+                    background: $black;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    transition: all .3s;
+                }
+
+                @include MobileTablet {
+                    @include font(22px, 800, $black, none, 26px);
+                }
+
+            }
+        }
+    }
+
+    &:hover {
+        img {
+            transform: scale(1.05);
+        }
+
+        h3 {
+            a {
+                &:after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

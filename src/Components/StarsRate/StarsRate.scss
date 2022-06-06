@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.StarsRate {
+    color: $white;
+    font-size: 19px;
+    width: 94px;
+    position: relative;
+    text-shadow: 0 1px 0 $gold;
+
+    &:before {
+        content: '★★★★★';
+        opacity: .3;
+    }
+
+    &:after {
+        content: '★★★★★';
+        position: absolute;
+        display: block;
+        color: $gold;
+        text-shadow: 0 1px 0 $gold;
+        z-index: 1;
+        left: 0;
+        top:0;
+        overflow: hidden;
+    }
+
+    span {
+        @include font(15px, 600, $black, none, 24px);
+        margin-left: 5px;
+    }
+}
+
+@for $i from 0 through 100 {
+    .widthPercentage--#{$i} {
+      &:after {
+        width: #{$i}#{"%"} !important;
+      }
+    }
+}
